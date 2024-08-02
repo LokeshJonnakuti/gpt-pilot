@@ -15,7 +15,7 @@ def send_telemetry(path_id):
     }
 
     try:
-        response = requests.post("https://api.pythagora.io/telemetry", json=telemetry_data)
+        response = requests.post("https://api.pythagora.io/telemetry", json=telemetry_data, timeout=60)
         response.raise_for_status()
     except requests.RequestException as err:
         print(f"Failed to send telemetry data: {err}")
@@ -31,7 +31,7 @@ def send_feedback(feedback, path_id):
     }
 
     try:
-        response = requests.post("https://api.pythagora.io/telemetry", json=feedback_data)
+        response = requests.post("https://api.pythagora.io/telemetry", json=feedback_data, timeout=60)
         response.raise_for_status()
     except requests.RequestException as err:
         print(f"Failed to send feedback data: {err}")

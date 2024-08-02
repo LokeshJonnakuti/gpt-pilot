@@ -323,8 +323,8 @@ def stream_gpt_completion(data, req_type, project):
         endpoint_url,
         headers=headers,
         json=data,
-        stream=True
-    )
+        stream=True, 
+    timeout=60)
 
     # Log the response status code and message
     logger.debug(f'Response status code: {response.status_code}')
